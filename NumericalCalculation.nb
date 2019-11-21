@@ -1,0 +1,185 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5671,        177]
+NotebookOptionsPosition[      5160,        160]
+NotebookOutlinePosition[      5497,        175]
+CellTagsIndexPosition[      5454,        172]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Phi]cut", ":=", 
+    RowBox[{"10", "^", 
+     RowBox[{"(", 
+      RowBox[{"-", "3"}], ")"}]}]}], ";"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"UVcut", ":=", "1"}], ";", " ", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Momentum", " ", "is", " ", "measured", " ", "in", " ", "units", " ", 
+     "of", " ", "g\[Mu]"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"S1", "[", 
+     RowBox[{
+      RowBox[{"x_", "?", "NumberQ"}], ",", 
+      RowBox[{"y_", "?", "NumberQ"}]}], "]"}], ":=", 
+    RowBox[{"4", 
+     RowBox[{"NIntegrate", "[", 
+      RowBox[{
+       RowBox[{"t", " ", 
+        RowBox[{"BesselK", "[", 
+         RowBox[{"0", ",", 
+          RowBox[{"2", " ", "t"}]}], "]"}], " ", 
+        RowBox[{
+         RowBox[{"BesselI", "[", 
+          RowBox[{"0", ",", 
+           RowBox[{"2", 
+            RowBox[{"x", "^", "2"}], " ", 
+            FractionBox["1", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox["x", "2"], "+", 
+                SuperscriptBox["y", "2"]}], ")"}], " ", 
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                SuperscriptBox["x", "2"], "+", 
+                SuperscriptBox["y", "2"]}], ")"}]}]], " ", "t"}]}], "]"}], 
+         "^", "2"}], 
+        RowBox[{
+         RowBox[{"BesselI", "[", 
+          RowBox[{"0", ",", 
+           RowBox[{"2", 
+            RowBox[{"y", "^", "2"}], 
+            FractionBox["1", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                SuperscriptBox["x", "2"], "+", 
+                SuperscriptBox["y", "2"]}], ")"}], 
+              RowBox[{"(", 
+               RowBox[{"2", "+", 
+                SuperscriptBox["x", "2"], "+", 
+                SuperscriptBox["y", "2"]}], ")"}]}]], "t"}]}], "]"}], "^", 
+         "2"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "Infinity"}], "}"}]}], "]"}]}]}], ";"}], 
+  " ", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{" ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"DensitySiMinusSr", "[", 
+     RowBox[{
+      RowBox[{"x_", "?", "NumberQ"}], ",", 
+      RowBox[{"y_", "?", "NumberQ"}]}], "]"}], ":=", 
+    RowBox[{
+     FractionBox[
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"1", "+", 
+         FractionBox["2", 
+          RowBox[{
+           SuperscriptBox["x", "2"], "+", 
+           SuperscriptBox["y", "2"]}]]}], ")"}], "2"], 
+      RowBox[{"1", "+", 
+       FractionBox["4", 
+        RowBox[{
+         SuperscriptBox["x", "2"], "+", 
+         SuperscriptBox["y", "2"]}]]}]], 
+     FractionBox["1", 
+      RowBox[{"S1", "[", 
+       RowBox[{"x", ",", "y"}], "]"}]]}]}], ";"}]}], "\[IndentingNewLine]", 
+ RowBox[{"SiMinusSr", ":=", 
+  RowBox[{
+   FractionBox["1", 
+    RowBox[{"4", " ", 
+     SuperscriptBox["\[Pi]", "2"]}]], "4", " ", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{"q", " ", 
+      RowBox[{"Log", "[", 
+       RowBox[{"f", "[", 
+        RowBox[{
+         RowBox[{"q", " ", 
+          RowBox[{"Cos", "[", "\[Phi]", "]"}]}], ",", 
+         RowBox[{"q", " ", 
+          RowBox[{"Sin", "[", "\[Phi]", "]"}]}]}], "]"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"q", ",", "0", ",", "UVcut"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Phi]", ",", "\[Phi]cut", ",", 
+       RowBox[{
+        RowBox[{"\[Pi]", "/", "2"}], "-", "\[Phi]cut"}]}], "}"}]}], 
+    "]"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"Sr", ":=", 
+  RowBox[{
+   FractionBox["1", 
+    RowBox[{"2", " ", "\[Pi]"}]], 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{"q", " ", 
+      RowBox[{"Log", "[", 
+       RowBox[{"1", "+", 
+        RowBox[{"4", "/", 
+         RowBox[{"q", "^", "2"}]}]}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"q", ",", "0", ",", "UVcut"}], "}"}]}], 
+    "]"}]}]}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.7832869431374273`*^9, 3.783287297257842*^9}, {
+  3.783287578723667*^9, 3.7832875789768476`*^9}},
+ CellLabel->"In[50]:=",ExpressionUUID->"b9c6082c-1512-43d4-baab-e719234fb8b2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SiMinusSr", "/", "Sr", " ", 
+  RowBox[{"(*", "Ratio", " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.78328759522637*^9, 3.78328760574504*^9}, {
+  3.783287678518984*^9, 
+  3.783287684941843*^9}},ExpressionUUID->"4ee533c4-a876-4ab5-8c73-\
+30c832725e41"],
+
+Cell[BoxData["0.3618615117723215`"], "Output",
+ CellChangeTimes->{3.7832875962802067`*^9, 3.783287663492832*^9},
+ CellLabel->"Out[56]=",ExpressionUUID->"97f95f1d-1eb4-4694-97fb-bff4c6548228"]
+}, Open  ]]
+},
+WindowSize->{808, 701},
+WindowMargins->{{12, Automatic}, {Automatic, 24}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4092, 123, 388, "Input",ExpressionUUID->"b9c6082c-1512-43d4-baab-e719234fb8b2"],
+Cell[CellGroupData[{
+Cell[4675, 147, 275, 6, 30, "Input",ExpressionUUID->"4ee533c4-a876-4ab5-8c73-30c832725e41"],
+Cell[4953, 155, 191, 2, 34, "Output",ExpressionUUID->"97f95f1d-1eb4-4694-97fb-bff4c6548228"]
+}, Open  ]]
+}
+]
+*)
+
